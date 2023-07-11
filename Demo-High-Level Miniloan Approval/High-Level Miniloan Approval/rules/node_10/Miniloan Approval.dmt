@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+    <name>Miniloan Approval</name>
+    <uuid>3f6bf784-d2ff-469e-8788-1a3c1b6c4fab</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <DT Version="7.0" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+            <Body>
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Miniloan Validity' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Miniloan Eligibility' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C2">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Miniloan Risk Acceptability' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Answers to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["Valid"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["Eligible"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Approved"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["≠ Valid"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Rejected"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["≠ Eligible"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Rejected"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression/>
+                            <Partition DefId="C2">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["≠ Acceptable"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Rejected"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+            <Resources DefaultLocale="en_US">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Miniloan Validity]]></Data>
+                    <Data Name="Definitions(C1)#HeaderText"><![CDATA[Miniloan Eligibility]]></Data>
+                    <Data Name="Definitions(C2)#HeaderText"><![CDATA[Miniloan Risk Acceptability]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Answers]]></Data>
+                    <Data Name="Definitions(A1)#HeaderText"><![CDATA[Messages]]></Data>
+                </ResourceSet>
+            </Resources>
+        </DT>
+    </definition>
+</ilog.rules.studio.model.dt:DecisionTable>
