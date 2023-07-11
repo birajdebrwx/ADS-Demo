@@ -1,16 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
-        <artifactId>demo-High-LevelMiniloanApproval</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.retention_basic</groupId>
+        <artifactId>retentionBasic</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>demo-High-LevelMiniloanApprovalDecisionService</artifactId>
+
+    <artifactId>retentionBasicDecisionService</artifactId>
     <packaging>jar</packaging>
+
     <dependencies>
         <dependency>
             <groupId>user1.jean_july_2022.retention_basic</groupId>
             <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
+            <version>LATEST-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>user1.jean_july_2022.retention_basic</groupId>
+            <artifactId>determineRetentionOffer0x00281-Initial0x0029-DataModel</artifactId>
             <version>LATEST-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -25,7 +33,11 @@
             <version>${ml-integration-runtime.version}</version>
         </dependency>
     </dependencies>
+
     
+
+
+
 <build>
         <resources>
             <resource>
@@ -53,6 +65,15 @@
                                 <artifactItem>
                                     <groupId>user1.jean_july_2022.retention_basic</groupId>
                                     <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
+                                    <version>LATEST-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <includes>**/*.class</includes>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>user1.jean_july_2022.retention_basic</groupId>
+                                    <artifactId>determineRetentionOffer0x00281-Initial0x0029-DataModel</artifactId>
                                     <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

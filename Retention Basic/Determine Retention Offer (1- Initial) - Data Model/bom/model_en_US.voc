@@ -1,0 +1,14 @@
+
+# NewEnum
+NewEnum#concept.label = new enum
+NewEnum.newEnumValue#instance.documentation = 
+NewEnum.newEnumValue#instance.label = new enum value
+
+# RetentionOffer
+RetentionOffer#concept.label = Retention Offer 
+RetentionOffer.RetentionOffer(java.util.List)#phrase.navigation = a new {Retention Offer} where {0, Offer}
+RetentionOffer.addTo_offers(java.lang.String)#phrase.action = add {0} to the Offers of {this}
+RetentionOffer.clear_offers()#phrase.action = clear the Offers of {this}
+RetentionOffer.offers#phrase.action = set the Offers of {this} to {Offer}
+RetentionOffer.offers#phrase.navigation = {Offer} of {this}
+RetentionOffer.removeFrom_offers(java.lang.String)#phrase.action = remove {0} from the Offers of {this}

@@ -1,0 +1,44 @@
+
+
+public class NewEnum
+        extends java.lang.Enum
+        property "ads.typeId" "2"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "newEnum"
+        property "de.generated" "true"
+{
+    domain {static newEnumValue}
+    public static final readonly NewEnum newEnumValue
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "newEnumValue";
+}
+
+public class RetentionOffer
+        property "ads.typeId" "1"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "RetentionOffer"
+        property "de.generated" "true"
+{
+    public java.util.List offers domain 0,* class string
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Offers"
+                property update "true";
+    public RetentionOffer(java.util.List offers domain 0,* class string)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public RetentionOffer()
+                property "dataio.default" "true";
+    public void addTo_offers(string offers)
+                property collectionAttribute "offers"
+                property update "true";
+    public void clear_offers()
+                property collectionAttribute "offers"
+                property update "true";
+    public void removeFrom_offers(string offers)
+                property collectionAttribute "offers"
+                property update "true";
+    public void set_offers(java.util.Collection offers domain 0,* class string)
+                property collectionAttribute "offers"
+                property update "true";
+}
+

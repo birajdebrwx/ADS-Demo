@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore">
+  <name>decisionModel</name>
+  <uuid>6876317b-7ff4-4b15-ae45-46a51ffffd10</uuid>
+  <locale>en_US</locale>
+  <definition><definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+    <extensionElements>
+        <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+    </extensionElements>
+    <decision id="node_1" name="Determine Retention Offer">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="Decision 2"/>
+                <input bomType="java.lang.String" collection="false" name="Decision 3"/>
+                <output bomType="java.lang.String" collection="false" name="Determine Retention Offer"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_1_ii" name="Determine Retention Offer" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_2"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_3"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_2" name="Decision 2">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="Decision 4"/>
+                <output bomType="java.lang.String" collection="false" name="Decision 2"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_2_ii" name="Decision 2" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_3" name="Decision 3">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="Decision 4"/>
+                <input bomType="java.lang.String" collection="false" name="Decision 5"/>
+                <output bomType="java.lang.String" collection="false" name="Decision 3"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_3_ii" name="Decision 3" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_4"/>
+        </informationRequirement>
+        <informationRequirement>
+            <requiredInput href="#node_5"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_4" name="Decision 4">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="Input 7"/>
+                <output bomType="java.lang.String" collection="false" name="Decision 4"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_4_ii" name="Decision 4" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_7"/>
+        </informationRequirement>
+    </decision>
+    <decision id="node_5" name="Decision 5">
+        <extensionElements>
+            <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                <input bomType="java.lang.String" collection="false" name="Input 6"/>
+                <output bomType="java.lang.String" collection="false" name="Decision 5"/>
+            </ruleset>
+        </extensionElements>
+        <variable id="node_5_ii" name="Decision 5" typeRef="java.lang.String"/>
+        <informationRequirement>
+            <requiredInput href="#node_6"/>
+        </informationRequirement>
+    </decision>
+    <inputData id="node_6" name="Input 6">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="Input 6"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_6_ii" name="Input 6" typeRef="java.lang.String"/>
+    </inputData>
+    <inputData id="node_7" name="Input 7">
+        <extensionElements>
+            <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                <output bomType="java.lang.String" collection="false" name="Input 7"/>
+            </initialization>
+        </extensionElements>
+        <variable id="node_7_ii" name="Input 7" typeRef="java.lang.String"/>
+    </inputData>
+</definitions></definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
