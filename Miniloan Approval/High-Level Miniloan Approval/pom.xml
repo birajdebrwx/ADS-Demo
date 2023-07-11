@@ -1,16 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>cp4admin.test.decision</groupId>
-        <artifactId>decision</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
+        <artifactId>miniloanApproval</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
-    <groupId>cp4admin.test.decision</groupId>
-    <artifactId>model</artifactId>
+    <groupId>user1.jean_july_2022.retention_basic</groupId>
+    <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
     <version>LATEST-SNAPSHOT</version>
-
     <build>
         <plugins>
             <plugin>
@@ -26,16 +23,15 @@
                 <configuration>
                     <deployments>
                         <deployment>
-                            <name>Model</name>
+                            <name>High-Level-Miniloan-Approval</name>
                         </deployment>
                     </deployments>
-                <packageName>cp4admin.test.decision.model</packageName>
+                    <packageName>user1.jean_july_2022.retention_basic.determineretentionoffer0x00281_initial0x0029</packageName>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
-<dependencies>
+    <dependencies>
         <dependency>
             <groupId>com.ibm.decision</groupId>
             <artifactId>engine-compact-runtime</artifactId>

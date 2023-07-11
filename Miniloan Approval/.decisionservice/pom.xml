@@ -1,19 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>cp4admin.test.decision</groupId>
-        <artifactId>decision</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
+        <artifactId>miniloanApproval</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>decisionDecisionService</artifactId>
+    <artifactId>miniloanApprovalDecisionService</artifactId>
     <packaging>jar</packaging>
-
     <dependencies>
         <dependency>
-            <groupId>cp4admin.test.decision</groupId>
-            <artifactId>model</artifactId>
+            <groupId>user1.jean_july_2022.retention_basic</groupId>
+            <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
             <version>LATEST-SNAPSHOT</version>
         </dependency>
         <dependency>
@@ -28,7 +25,6 @@
             <version>${ml-integration-runtime.version}</version>
         </dependency>
     </dependencies>
-
     
 
 <build>
@@ -56,8 +52,8 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>cp4admin.test.decision</groupId>
-                                    <artifactId>model</artifactId>
+                                    <groupId>user1.jean_july_2022.retention_basic</groupId>
+                                    <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
                                     <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

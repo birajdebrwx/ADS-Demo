@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>cp4admin.dfm_miniloan_service.retention_basic</groupId>
-    <artifactId>retentionBasic</artifactId>
+    <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
+    <artifactId>miniloanApproval</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-
     <packaging>pom</packaging>
-
     <properties>
         <engine-api.version>2.10.0</engine-api.version>
         <engine-compact-runtime.version>2.10.1.1</engine-compact-runtime.version>
@@ -22,7 +19,6 @@
         <ml-integration-runtime.version>22.0.6</ml-integration-runtime.version>
         <ads-mojo.version>6.1.5.3</ads-mojo.version>
     </properties>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -59,10 +55,8 @@
     </dependencyManagement>
     <modules>
         <module>.decisionservice</module>
-        <module>Determine Retention Offer (1- Initial)</module>
-        <module>Determine Retention Offer (1- Initial) - Data Model</module>
+        <module>High-Level Miniloan Approval</module>
     </modules>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -70,7 +64,7 @@
                     <groupId>com.ibm.decision</groupId>
                     <artifactId>build-maven-plugin</artifactId>
                     <version>${ads-mojo.version}</version>
-                <dependencies>
+                    <dependencies>
                         <dependency>
                             <groupId>com.ibm.decision</groupId>
                             <artifactId>ml-integration-runtime</artifactId>
@@ -78,7 +72,7 @@
                         </dependency>
                     </dependencies>
                 </plugin>
-            <plugin>
+                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
@@ -90,5 +84,4 @@
             </plugins>
         </pluginManagement>
     </build>
-
 </project>
