@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore" xmlns:xmi="http://www.omg.org/XMI">
+    <name>decisionModel</name>
+    <uuid>732ff32d-37f8-4338-9265-9081fcc7c9cd</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+            <extensionElements>
+                <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+            </extensionElements>
+            <decision id="node_1" name="Miniloan Risk Acceptability">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Probability of Default"/>
+                        <input bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.A/B Test Credit Rating"/>
+                        <output bomType="java.lang.String" collection="false" name="Miniloan Risk Acceptability"/>
+                        <rule defaultRule="false" href="node_1/Miniloan%20Risk%20Acceptability.dmt" kind="DecisionTable" name="Miniloan Risk Acceptability"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_1_i" name="Miniloan Risk Acceptability" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_4"/>
+                </informationRequirement>
+                <informationRequirement>
+                    <requiredInput href="#node_3"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_2" name="Miniloan A/B Testing.Credit Rating Based On Score">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Loan Borrower"/>
+                        <output bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Credit Rating Based On Score"/>
+                        <rule defaultRule="false" href="node_2/Miniloan%20A/B%20Testing.Credit%20Rating%20Based%20On%20Score.dmt" kind="DecisionTable" name="Miniloan A/B Testing.Credit Rating Based On Score"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_2_ii" name="Miniloan A/B Testing.Credit Rating Based On Score" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_8"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_3" name="Miniloan A/B Testing.A/B Test Credit Rating">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Credit Rating Based On Score"/>
+                        <input bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Credit Rating Based on History"/>
+                        <output bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.A/B Test Credit Rating"/>
+                        <rule defaultRule="false" href="node_3/Miniloan%20A/B%20Testing.A/B%20Test%20Credit%20Rating.dmt" kind="DecisionTable" name="Miniloan A/B Testing.A/B Test Credit Rating"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_3_iii" name="Miniloan A/B Testing.A/B Test Credit Rating" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_2"/>
+                </informationRequirement>
+                <informationRequirement>
+                    <requiredInput href="#node_5"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_4" name="Probability of Default">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Loan Application"/>
+                        <input bomType="java.lang.String" collection="false" name="Loan Borrower"/>
+                        <output bomType="java.lang.String" collection="false" name="Probability of Default"/>
+                        <rule defaultRule="false" href="node_4/Probability%20of%20Default.dmt" kind="DecisionTable" name="Probability of Default"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_4_iiii" name="Probability of Default" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_6"/>
+                </informationRequirement>
+                <informationRequirement>
+                    <requiredInput href="#node_8"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_5" name="Miniloan A/B Testing.Credit Rating Based on History">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Banking History"/>
+                        <output bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Credit Rating Based on History"/>
+                        <rule defaultRule="false" href="node_5/Miniloan%20A/B%20Testing.Credit%20Rating%20Based%20on%20History.dmt" kind="DecisionTable" name="Miniloan A/B Testing.Credit Rating Based on History"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_5_iiiii" name="Miniloan A/B Testing.Credit Rating Based on History" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_7"/>
+                </informationRequirement>
+            </decision>
+            <inputData id="node_6" name="Miniloan A/B Testing.Loan Application">
+                <description></description>
+                <extensionElements>
+                    <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                        <output bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Loan Application"/>
+                    </initialization>
+                </extensionElements>
+                <variable id="node_6_iiiiii" name="Miniloan A/B Testing.Loan Application" typeRef="java.lang.String"/>
+            </inputData>
+            <inputData id="node_7" name="Miniloan A/B Testing.Banking History">
+                <description></description>
+                <extensionElements>
+                    <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                        <output bomType="java.lang.String" collection="false" name="Miniloan A/B Testing.Banking History"/>
+                    </initialization>
+                </extensionElements>
+                <variable id="node_7_iiiiiii" name="Miniloan A/B Testing.Banking History" typeRef="java.lang.String"/>
+            </inputData>
+            <inputData id="node_8" name="Loan Borrower">
+                <description></description>
+                <extensionElements>
+                    <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                        <output bomType="java.lang.String" collection="false" name="Loan Borrower"/>
+                    </initialization>
+                </extensionElements>
+                <variable id="node_8_iiiiiiii" name="Loan Borrower" typeRef="java.lang.String"/>
+            </inputData>
+        </definitions>
+    </definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
