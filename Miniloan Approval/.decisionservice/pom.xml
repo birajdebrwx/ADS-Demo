@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
@@ -24,10 +25,13 @@
             <artifactId>ml-integration-runtime</artifactId>
             <version>${ml-integration-runtime.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
+            <artifactId>DetermineRetentionOffer0x00281-Initial0x00290x002810x0029</artifactId>
+            <version>LATEST-SNAPSHOT</version>
+        </dependency>
     </dependencies>
-    
-
-<build>
+    <build>
         <resources>
             <resource>
                 <directory>${project.basedir}</directory>
@@ -54,6 +58,15 @@
                                 <artifactItem>
                                     <groupId>user1.jean_july_2022.retention_basic</groupId>
                                     <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
+                                    <version>LATEST-SNAPSHOT</version>
+                                    <type>jar</type>
+                                    <overWrite>false</overWrite>
+                                    <includes>**/*.class</includes>
+                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
+                                </artifactItem>
+                                <artifactItem>
+                                    <groupId>cp4admin.dfm_miniloan_service.miniloan_approval</groupId>
+                                    <artifactId>DetermineRetentionOffer0x00281-Initial0x00290x002810x0029</artifactId>
                                     <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

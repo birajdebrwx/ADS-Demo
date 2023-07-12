@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<com.ibm.rules.studio.model.decisionmodel:DecisionModel xmi:version="2.0" xmlns:com.ibm.rules.studio.model.decisionmodel="http://com.ibm.rules.studio/model/decisionmodel.ecore" xmlns:xmi="http://www.omg.org/XMI">
+    <name>decisionModel</name>
+    <uuid>DFM-4093e5a0-4e6c-44a6-a8e1-29ebecbe090b</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <definitions xmlns="http://www.omg.org/spec/DMN/20180521/MODEL/" id="decisions" name="diagram" namespace="">
+            <extensionElements>
+                <locale xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" id="en_US"/>
+            </extensionElements>
+            <decision id="node_1" name="Logical Upgrade">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Subscription"/>
+                        <output bomType="java.lang.String" collection="false" name="Logical Upgrade"/>
+                        <rule defaultRule="false" href="node_1/Logical%20Upgrade.dmt" kind="DecisionTable" name="Logical Upgrade"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_1_i" name="Logical Upgrade" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_6"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_2" name="Operation Cost">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Customer"/>
+                        <output bomType="java.lang.String" collection="false" name="Operation Cost"/>
+                        <rule defaultRule="false" href="node_2/Operation%20Cost.dmt" kind="DecisionTable" name="Operation Cost"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_2_ii" name="Operation Cost" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_7"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_3" name="Determine Retention Offer">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Retention Monthly Budget"/>
+                        <input bomType="java.lang.String" collection="false" name="Ranked Eligible Retention Offers"/>
+                        <output bomType="java.lang.String" collection="false" name="Determine Retention Offer"/>
+                        <rule defaultRule="false" href="node_3/Determine%20Retention%20Offer.dmt" kind="DecisionTable" name="Determine Retention Offer"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_3_iii" name="Determine Retention Offer" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_5"/>
+                </informationRequirement>
+                <informationRequirement>
+                    <requiredInput href="#node_4"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_4" name="Ranked Eligible Retention Offers">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Logical Upgrade"/>
+                        <input bomType="java.lang.String" collection="false" name="Operation Cost"/>
+                        <output bomType="java.lang.String" collection="false" name="Ranked Eligible Retention Offers"/>
+                        <rule defaultRule="false" href="node_4/Ranked%20Eligible%20Retention%20Offers.dmt" kind="DecisionTable" name="Ranked Eligible Retention Offers"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_4_iiii" name="Ranked Eligible Retention Offers" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_1"/>
+                </informationRequirement>
+                <informationRequirement>
+                    <requiredInput href="#node_2"/>
+                </informationRequirement>
+            </decision>
+            <decision id="node_5" name="Retention Monthly Budget">
+                <description></description>
+                <extensionElements>
+                    <ruleset xmlns="http://www.ibm.com/spec/ODM/dmn.xsd" conflictResolution="sequence">
+                        <input bomType="java.lang.String" collection="false" name="Operation Cost"/>
+                        <output bomType="java.lang.String" collection="false" name="Retention Monthly Budget"/>
+                        <rule defaultRule="false" href="node_5/Retention%20Monthly%20Budget.dmt" kind="DecisionTable" name="Retention Monthly Budget"/>
+                    </ruleset>
+                </extensionElements>
+                <variable id="node_5_iiiii" name="Retention Monthly Budget" typeRef="java.lang.String"/>
+                <informationRequirement>
+                    <requiredInput href="#node_2"/>
+                </informationRequirement>
+            </decision>
+            <inputData id="node_6" name="Subscription">
+                <description></description>
+                <extensionElements>
+                    <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                        <output bomType="java.lang.String" collection="false" name="Subscription"/>
+                    </initialization>
+                </extensionElements>
+                <variable id="node_6_iiiiii" name="Subscription" typeRef="java.lang.String"/>
+            </inputData>
+            <inputData id="node_7" name="Customer">
+                <description></description>
+                <extensionElements>
+                    <initialization xmlns="http://www.ibm.com/spec/ODM/dmn.xsd">
+                        <output bomType="java.lang.String" collection="false" name="Customer"/>
+                    </initialization>
+                </extensionElements>
+                <variable id="node_7_iiiiiii" name="Customer" typeRef="java.lang.String"/>
+            </inputData>
+        </definitions>
+    </definition>
+</com.ibm.rules.studio.model.decisionmodel:DecisionModel>
