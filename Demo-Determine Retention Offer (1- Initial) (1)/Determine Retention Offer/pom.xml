@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
-        <artifactId>demo-High-LevelMiniloanApproval</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.demo_determine_retention_offer__1__initial___1_</groupId>
+        <artifactId>demo-DetermineRetentionOffer0x00281-Initial0x00290x002810x0029</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
     <groupId>user1.jean_july_2022.retention_basic</groupId>
-    <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
+    <artifactId>determineRetentionOffer</artifactId>
     <version>LATEST-SNAPSHOT</version>
     <build>
         <plugins>
@@ -23,7 +23,7 @@
                 <configuration>
                     <deployments>
                         <deployment>
-                            <name>High-Level-Miniloan-Approval</name>
+                            <name>Determine-Retention-Offer</name>
                         </deployment>
                     </deployments>
                     <packageName>user1.jean_july_2022.retention_basic.determineretentionoffer0x00281_initial0x0029</packageName>
@@ -32,11 +32,6 @@
         </plugins>
     </build>
     <dependencies>
-        <dependency>
-            <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
-            <artifactId>loanApproval</artifactId>
-            <version>LATEST-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.ibm.decision</groupId>
             <artifactId>engine-compact-runtime</artifactId>

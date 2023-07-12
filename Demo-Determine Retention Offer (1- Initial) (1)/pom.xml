@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>user1.redhat.Demo-Determine_Retention_Offer_(1-_Initial)_(1)</groupId>
-    <artifactId>Demo-DetermineRetentionOffer(1-Initial)(1)</artifactId>
+    <groupId>cp4admin.dfm_miniloan_service.demo_determine_retention_offer__1__initial___1_</groupId>
+    <artifactId>demo-DetermineRetentionOffer0x00281-Initial0x00290x002810x0029</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
@@ -11,14 +10,14 @@
         <buildTime>${maven.build.timestamp}</buildTime>
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
         <junit.jupiter.version>5.8.0</junit.jupiter.version>
-        <jackson.version>2.12.6</jackson.version>
+        <jackson.version>2.13.2</jackson.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ml-integration-runtime.version>22.0.5</ml-integration-runtime.version>
-        <ads-mojo.version>6.1.5.1</ads-mojo.version>
+        <ml-integration-runtime.version>22.0.6</ml-integration-runtime.version>
+        <ads-mojo.version>6.1.5.3</ads-mojo.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -56,7 +55,7 @@
     </dependencyManagement>
     <modules>
         <module>.decisionservice</module>
-        <module>Determine Retention Offer (1- Initial) (1)</module>
+        <module>Determine Retention Offer</module>
     </modules>
     <build>
         <pluginManagement>

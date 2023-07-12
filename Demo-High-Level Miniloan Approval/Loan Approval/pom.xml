@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <parent>
-        <groupId>user1.redhat.Demo-Determine_Retention_Offer_(1-_Initial)_(1)</groupId>
-        <artifactId>Demo-DetermineRetentionOffer(1-Initial)(1)</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+        <artifactId>demo-High-LevelMiniloanApproval</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>user1.redhat.Demo-Determine_Retention_Offer_(1-_Initial)_(1)</groupId>
-    <artifactId>DetermineRetentionOffer0x00281-Initial0x00290x002810x0029</artifactId>
+
+    <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+    <artifactId>loanApproval</artifactId>
     <version>LATEST-SNAPSHOT</version>
+
     <build>
         <plugins>
             <plugin>
@@ -24,15 +26,16 @@
                 <configuration>
                     <deployments>
                         <deployment>
-                            <name>Determine-Retention-Offer-1--Initial-1</name>
+                            <name>Loan-Approval</name>
                         </deployment>
                     </deployments>
-                    <packageName>user1.redhat.Demo-Determine_Retention_Offer_(1-_Initial)_(1).determineretentionoffer0x00281-initial0x00290x002810x0029</packageName>
+                <packageName>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval.loanapproval</packageName>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-    <dependencies>
+
+<dependencies>
         <dependency>
             <groupId>com.ibm.decision</groupId>
             <artifactId>engine-compact-runtime</artifactId>

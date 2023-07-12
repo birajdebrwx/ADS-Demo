@@ -1,14 +1,23 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>user1.redhat.Demo-High-Level_Miniloan_Approval</groupId>
-        <artifactId>Demo-High-LevelMiniloanApproval</artifactId>
+        <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+        <artifactId>demo-High-LevelMiniloanApproval</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <artifactId>retentionBasicDecisionService</artifactId>
+    <artifactId>demo-High-LevelMiniloanApprovalDecisionService</artifactId>
     <packaging>jar</packaging>
     <dependencies>
+        <dependency>
+            <groupId>user1.jean_july_2022.retention_basic</groupId>
+            <artifactId>determineRetentionOffer0x00281-Initial0x0029</artifactId>
+            <version>LATEST-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+            <artifactId>loanApproval</artifactId>
+            <version>LATEST-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.ibm.decision</groupId>
             <artifactId>engine-compact-runtime</artifactId>
@@ -20,13 +29,11 @@
             <artifactId>ml-integration-runtime</artifactId>
             <version>${ml-integration-runtime.version}</version>
         </dependency>
-        <dependency>
-            <groupId>user1.redhat.Demo-High-Level_Miniloan_Approval</groupId>
-            <artifactId>High-LevelMiniloanApproval</artifactId>
-            <version>LATEST-SNAPSHOT</version>
-        </dependency>
     </dependencies>
-    <build>
+    
+
+
+<build>
         <resources>
             <resource>
                 <directory>${project.basedir}</directory>
@@ -60,17 +67,8 @@
                                     <outputDirectory>${project.build.directory}/classes</outputDirectory>
                                 </artifactItem>
                                 <artifactItem>
-                                    <groupId>user1.jean_july_2022.retention_basic</groupId>
-                                    <artifactId>determineRetentionOffer0x00281-Initial0x0029-DataModel</artifactId>
-                                    <version>LATEST-SNAPSHOT</version>
-                                    <type>jar</type>
-                                    <overWrite>false</overWrite>
-                                    <includes>**/*.class</includes>
-                                    <outputDirectory>${project.build.directory}/classes</outputDirectory>
-                                </artifactItem>
-                                <artifactItem>
-                                    <groupId>user1.redhat.Demo-High-Level_Miniloan_Approval</groupId>
-                                    <artifactId>High-LevelMiniloanApproval</artifactId>
+                                    <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+                                    <artifactId>loanApproval</artifactId>
                                     <version>LATEST-SNAPSHOT</version>
                                     <type>jar</type>
                                     <overWrite>false</overWrite>

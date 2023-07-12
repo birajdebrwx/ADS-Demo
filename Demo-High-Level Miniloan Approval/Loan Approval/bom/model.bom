@@ -1,0 +1,66 @@
+
+
+public class LoanApplication
+        property "ads.typeId" "1"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "LoanApplication"
+        property "de.generated" "true"
+{
+    public double amount
+                property "ads.attributeId" "5"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Amount"
+                property update "true";
+    public double duration
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "Duration"
+                property update "true";
+    public string loanApplication
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "LoanApplication"
+                property update "true";
+    public double yearlyInterestRate
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "YearlyInterestRate"
+                property update "true";
+    public double yearlyRepayment
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "YearlyRepayment"
+                property update "true";
+    public LoanApplication(double amount, double duration, string loanApplication, double yearlyInterestRate, double yearlyRepayment)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public LoanApplication()
+                property "dataio.default" "true";
+}
+
+public class LoanBorrower
+        property "ads.typeId" "2"
+        property "com.fasterxml.jackson.annotation.JsonTypeName" "LoanBorrower"
+        property "de.generated" "true"
+{
+    public double creditScore
+                property "ads.attributeId" "2"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "CreditScore"
+                property update "true";
+    public double debtToIncomeRatio
+                property "ads.attributeId" "1"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "DebtToIncomeRatio"
+                property update "true";
+    public double liabilityMonthlyAmount
+                property "ads.attributeId" "4"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "LiabilityMonthlyAmount"
+                property update "true";
+    public double yearlyIncome
+                property "ads.attributeId" "3"
+                property "com.fasterxml.jackson.annotation.JsonProperty" "YearlyIncome"
+                property update "true";
+    public LoanBorrower(double creditScore, double debtToIncomeRatio, double liabilityMonthlyAmount, double yearlyIncome)
+                property autoExpand "true"
+                property beanConstructor "true"
+                property groups "BALA"
+                property prototype "true";
+    public LoanBorrower()
+                property "dataio.default" "true";
+}
+

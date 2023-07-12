@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
-  <name>Miniloan Borrower Eligibility</name>
-  <uuid>37880ae1-bfbe-4508-8ac6-33e750f9147a</uuid>
+  <name>Miniloan Repayment Eligibility V2</name>
+  <uuid>a329f313-0b1c-421a-bb59-507797a6539d</uuid>
   <locale>en_US</locale>
   <definition><DT xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable" Version="7.0">
     <Body>
@@ -13,7 +13,7 @@
             <ConditionDefinitions>
                 <ConditionDefinition Id="C0">
                     <ExpressionDefinition>
-                        <Text><![CDATA['Miniloan Credit Rating' is <a string>]]></Text>
+                        <Text><![CDATA['Yearly Income Threshold' is <a string>]]></Text>
                     </ExpressionDefinition>
                 </ConditionDefinition>
             </ConditionDefinitions>
@@ -29,7 +29,7 @@
             <Partition DefId="C0">
                 <Condition>
                     <Expression>
-                        <Param><![CDATA["!in (Very Poor, Very Good, Good, Fair, Exceptional)"]]></Param>
+                        <Param><![CDATA["> Yearly Income Threshold"]]></Param>
                     </Expression>
                     <ActionSet>
                         <Action DefId="A0">
@@ -41,7 +41,7 @@
                 </Condition>
                 <Condition>
                     <Expression>
-                        <Param><![CDATA["in (Very Poor, Very Good, Good, Fair, Exceptional)"]]></Param>
+                        <Param><![CDATA["≤ Yearly Income Threshold"]]></Param>
                     </Expression>
                     <ActionSet>
                         <Action DefId="A0">
@@ -56,11 +56,10 @@
     </Body>
     <Resources DefaultLocale="en_US">
         <ResourceSet Locale="en_US">
-            <Data Name="Definitions(C0)#HeaderText"><![CDATA[Miniloan Credit Rating]]></Data>
-            <Data Name="Definitions(A0)#Width"><![CDATA[362]]></Data>
-            <Data Name="Definitions(A0)[0]#HeaderText"><![CDATA[a string]]></Data>
-            <Data Name="Definitions(A0)#HeaderText"><![CDATA[Miniloan Borrower Eligibility]]></Data>
-            <Data Name="Definitions(C0)#Width"><![CDATA[473]]></Data>
+            <Data Name="Definitions(C0)#HeaderText"><![CDATA[Yearly Income Threshold]]></Data>
+            <Data Name="Definitions(A0)#Width"><![CDATA[251]]></Data>
+            <Data Name="Definitions(A0)#HeaderText"><![CDATA[Miniloan Repayment Eligibility]]></Data>
+            <Data Name="Definitions(C0)#Width"><![CDATA[350]]></Data>
         </ResourceSet>
     </Resources>
 </DT></definition>

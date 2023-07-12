@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" rulesetName="operation" targetRuleProjectName="Determine Retention Offer">
+  <name>Determine-Retention-Offer</name>
+  <uuid>db705af4-54fa-41e0-9135-f9bb9234947e</uuid>
+  <decisionModel href="../rules/decisionModel.dmo#DFM-4093e5a0-4e6c-44a6-a8e1-29ebecbe090b"/>
+  <targetRuleProject href="../../Determine%20Retention%20Offer#9858e517-b671-4ce2-98ba-87a555d5bed1"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
+<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>user1.redhat.Demo-High-Level_Miniloan_Approval</groupId>
-    <artifactId>Demo-High-LevelMiniloanApproval</artifactId>
+    <groupId>cp4admin.dfm_miniloan_service.demo_high_level_miniloan_approval</groupId>
+    <artifactId>demo-High-LevelMiniloanApproval</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>
@@ -11,14 +10,14 @@
         <buildTime>${maven.build.timestamp}</buildTime>
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
         <junit.jupiter.version>5.8.0</junit.jupiter.version>
-        <jackson.version>2.12.6</jackson.version>
+        <jackson.version>2.13.2</jackson.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven.build.timestamp.format>yyyy-MM-dd'T'HH:mm:ss'Z'</maven.build.timestamp.format>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ml-integration-runtime.version>22.0.5</ml-integration-runtime.version>
-        <ads-mojo.version>6.1.5.1</ads-mojo.version>
+        <ml-integration-runtime.version>22.0.6</ml-integration-runtime.version>
+        <ads-mojo.version>6.1.5.3</ads-mojo.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -57,6 +56,7 @@
     <modules>
         <module>.decisionservice</module>
         <module>High-Level Miniloan Approval</module>
+        <module>Loan Approval</module>
     </modules>
     <build>
         <pluginManagement>

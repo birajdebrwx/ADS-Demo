@@ -1,0 +1,42 @@
+
+# LoanApplication
+LoanApplication#concept.label = Loan Application
+LoanApplication.LoanApplication(double,double,java.lang.String,double,double)#phrase.navigation = a new {Loan Application} where {0, Amount} {1, Duration} {2, Loan Application} {3, Yearly Interest Rate} {4, Yearly Repayment}
+LoanApplication.amount#phrase.action = set the Amount of {this} to {Amount}
+LoanApplication.amount#phrase.addition_setter = add {Amount} to the Amount of {this}
+LoanApplication.amount#phrase.navigation = {Amount} of {this}
+LoanApplication.amount#phrase.subtraction_setter = subtract {Amount} from the Amount of {this}
+LoanApplication.duration#phrase.action = set the Duration of {this} to {Duration}
+LoanApplication.duration#phrase.addition_setter = add {Duration} to the Duration of {this}
+LoanApplication.duration#phrase.navigation = {Duration} of {this}
+LoanApplication.duration#phrase.subtraction_setter = subtract {Duration} from the Duration of {this}
+LoanApplication.loanApplication#phrase.action = set the Loan Application of {this} to {Loan Application}
+LoanApplication.loanApplication#phrase.navigation = {Loan Application} of {this}
+LoanApplication.yearlyInterestRate#phrase.action = set the Yearly Interest Rate of {this} to {Yearly Interest Rate}
+LoanApplication.yearlyInterestRate#phrase.addition_setter = add {Yearly Interest Rate} to the Yearly Interest Rate of {this}
+LoanApplication.yearlyInterestRate#phrase.navigation = {Yearly Interest Rate} of {this}
+LoanApplication.yearlyInterestRate#phrase.subtraction_setter = subtract {Yearly Interest Rate} from the Yearly Interest Rate of {this}
+LoanApplication.yearlyRepayment#phrase.action = set the Yearly Repayment of {this} to {Yearly Repayment}
+LoanApplication.yearlyRepayment#phrase.addition_setter = add {Yearly Repayment} to the Yearly Repayment of {this}
+LoanApplication.yearlyRepayment#phrase.navigation = {Yearly Repayment} of {this}
+LoanApplication.yearlyRepayment#phrase.subtraction_setter = subtract {Yearly Repayment} from the Yearly Repayment of {this}
+
+# LoanBorrower
+LoanBorrower#concept.label = Loan Borrower
+LoanBorrower.LoanBorrower(double,double,double,double)#phrase.navigation = a new {Loan Borrower} where {0, Credit Score} {1, Debt to Income Ratio} {2, Liability Monthly Amount} {3, Yearly Income}
+LoanBorrower.creditScore#phrase.action = set the Credit Score of {this} to {Credit Score}
+LoanBorrower.creditScore#phrase.addition_setter = add {Credit Score} to the Credit Score of {this}
+LoanBorrower.creditScore#phrase.navigation = {Credit Score} of {this}
+LoanBorrower.creditScore#phrase.subtraction_setter = subtract {Credit Score} from the Credit Score of {this}
+LoanBorrower.debtToIncomeRatio#phrase.action = set the Debt to Income Ratio of {this} to {Debt to Income Ratio}
+LoanBorrower.debtToIncomeRatio#phrase.addition_setter = add {Debt to Income Ratio} to the Debt to Income Ratio of {this}
+LoanBorrower.debtToIncomeRatio#phrase.navigation = {Debt to Income Ratio} of {this}
+LoanBorrower.debtToIncomeRatio#phrase.subtraction_setter = subtract {Debt to Income Ratio} from the Debt to Income Ratio of {this}
+LoanBorrower.liabilityMonthlyAmount#phrase.action = set the Liability Monthly Amount of {this} to {Liability Monthly Amount}
+LoanBorrower.liabilityMonthlyAmount#phrase.addition_setter = add {Liability Monthly Amount} to the Liability Monthly Amount of {this}
+LoanBorrower.liabilityMonthlyAmount#phrase.navigation = {Liability Monthly Amount} of {this}
+LoanBorrower.liabilityMonthlyAmount#phrase.subtraction_setter = subtract {Liability Monthly Amount} from the Liability Monthly Amount of {this}
+LoanBorrower.yearlyIncome#phrase.action = set the Yearly Income of {this} to {Yearly Income}
+LoanBorrower.yearlyIncome#phrase.addition_setter = add {Yearly Income} to the Yearly Income of {this}
+LoanBorrower.yearlyIncome#phrase.navigation = {Yearly Income} of {this}
+LoanBorrower.yearlyIncome#phrase.subtraction_setter = subtract {Yearly Income} from the Yearly Income of {this}
