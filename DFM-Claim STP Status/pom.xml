@@ -57,6 +57,7 @@
     <modules>
         <module>.decisionservice</module>
         <module>Claim STP Status</module>
+        <module>Determine Retention Offer (1- Initial) (1)</module>
     </modules>
     <build>
         <pluginManagement>
