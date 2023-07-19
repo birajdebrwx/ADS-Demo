@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+    <name>Claim Wastage Assessment</name>
+    <uuid>7e8a0138-1736-4073-a77d-3477194c8691</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <DT Version="7.0" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+            <Body>
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Benefit Type List' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Wastage.Treatment Appropriateness' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C2">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Wastage.Non-Surgical Wastage' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C3">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Wastage.Claim Length of Stay' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C4">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Wastage.Claim Cost Reasonableness' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Claim Wastage Assessment to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                        <ActionDefinition Id="A1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Message to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable Medical Wastage: Length of stay is questionable for hospital cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["REASONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable Medical Wastage: Length of stay is acceptable for hospital cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["UNREASONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable Medical Wastage: Length of stay is unacceptable for hospital cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["APPROPRIATE"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["REASONABLE"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C4">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["REASONABLE"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Acceptable"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                        <Action DefId="A1">
+                                                            <Expression>
+                                                                <Param><![CDATA["Acceptable Medical Wastage: Medical wastage considerations are acceptable for hospital reimbursement benefit."]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable Medical Wastage: Surgery appropriateness is questionable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["!in APPROPRIATE, QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable Medical Wastage: Surgery appropriateness is unacceptable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable Medical Wastage: Length of stay is questionable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C3">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["UNREASONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable Medical Wastage: Length of stay is unacceptable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C4">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable Medical Wastage: Claim cost is questionable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["HOSPITAL REIMBURSEMENT"]]></Param>
+                            </Expression>
+                            <Partition DefId="C4">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["UNREASONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable Medical Wastage: Claim cost is unacceptable for hospital reimbursement benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["SURGICAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["APPROPRIATE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable Medical Wastage: Surgery appropriateness is acceptable for surgical cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["SURGICAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["≠ APPROPRIATE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable Medical Wastage: Surgery appropriateness is unacceptable for surgical cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["SURGICAL CASH"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["QUESTIONABLE"]]></Param>
+                                    </Expression>
+                                    <ActionSet>
+                                        <Action DefId="A0">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                        </Action>
+                                        <Action DefId="A1">
+                                            <Expression>
+                                                <Param><![CDATA["Questionable Medical Wastage: Surgery appropriateness is questionable for surgical cash benefit."]]></Param>
+                                            </Expression>
+                                        </Action>
+                                    </ActionSet>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["Otherwise"]]></Param>
+                            </Expression>
+                            <ActionSet>
+                                <Action DefId="A0">
+                                    <Expression>
+                                        <Param><![CDATA["Unacceptable"]]></Param>
+                                    </Expression>
+                                </Action>
+                                <Action DefId="A1">
+                                    <Expression>
+                                        <Param><![CDATA["Unacceptable Medical Wastage."]]></Param>
+                                    </Expression>
+                                </Action>
+                            </ActionSet>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+            <Resources DefaultLocale="en_US">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Benefit Type List]]></Data>
+                    <Data Name="Definitions(C1)#HeaderText"><![CDATA[Claim Wastage.Treatment Appropriateness]]></Data>
+                    <Data Name="Definitions(C2)#HeaderText"><![CDATA[Claim Wastage.Non-Surgical Wastage]]></Data>
+                    <Data Name="Definitions(C3)#HeaderText"><![CDATA[Claim Wastage.Claim Length of Stay]]></Data>
+                    <Data Name="Definitions(C4)#HeaderText"><![CDATA[Claim Wastage.Claim Cost Reasonableness]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Claim Wastage Assessment]]></Data>
+                    <Data Name="Definitions(A1)#HeaderText"><![CDATA[Message]]></Data>
+                    <Data Name="Definitions(A2)#HeaderText"><![CDATA[Messages]]></Data>
+                    <Data Name="Definitions(A3)#HeaderText"><![CDATA[UniqueId]]></Data>
+                </ResourceSet>
+            </Resources>
+        </DT>
+    </definition>
+</ilog.rules.studio.model.dt:DecisionTable>

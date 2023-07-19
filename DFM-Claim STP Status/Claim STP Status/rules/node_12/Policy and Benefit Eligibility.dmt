@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+    <name>Policy and Benefit Eligibility</name>
+    <uuid>bc4e8788-9df4-450d-81f7-4854258ac877</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <DT Version="7.0" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+            <Body>
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Policy and Benefit Eligibility Status' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Policy and Benefit Eligibility to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <ActionSet>
+                                <Action DefId="A0">
+                                    <Expression>
+                                        <Param><![CDATA["STP ELIGIBLE"]]></Param>
+                                    </Expression>
+                                </Action>
+                            </ActionSet>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+            <Resources DefaultLocale="en_US">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Policy and Benefit Eligibility Status]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Policy and Benefit Eligibility]]></Data>
+                    <Data Name="Definitions(A1)#HeaderText"><![CDATA[Messages]]></Data>
+                    <Data Name="Definitions(A2)#HeaderText"><![CDATA[UniqueId]]></Data>
+                </ResourceSet>
+            </Resources>
+        </DT>
+    </definition>
+</ilog.rules.studio.model.dt:DecisionTable>

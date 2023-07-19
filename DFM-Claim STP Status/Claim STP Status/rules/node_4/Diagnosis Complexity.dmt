@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+    <name>Diagnosis Complexity</name>
+    <uuid>f08a4b42-6921-44ae-9e36-7ea79860b175</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <DT Version="7.0" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+            <Body>
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Complexity.Diagnosis Code Count' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Complexity.Catastrophic Diagnosis Code Count' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C2">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Complexity.Comorbidity Complexity' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Diagnosis Complexity to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                        <ActionDefinition Id="A1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Message to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["1"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["> 0"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["High"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["High Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["1"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["0"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Low"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["Low Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["2"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["HIGH"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["High"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["High Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["2"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["LOW"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Low"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["Low Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["2"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["MODERATE"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Moderate"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["Moderate Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["≥ 3"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["High"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                                <Action DefId="A1">
+                                                    <Expression>
+                                                        <Param><![CDATA["High Diagnosis Complexity"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+            <Resources DefaultLocale="en_US">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Claim Complexity.Diagnosis Code Count]]></Data>
+                    <Data Name="Definitions(C1)#HeaderText"><![CDATA[Claim Complexity.Catastrophic Diagnosis Code Count]]></Data>
+                    <Data Name="Definitions(C2)#HeaderText"><![CDATA[Claim Complexity.Comorbidity Complexity]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Diagnosis Complexity]]></Data>
+                    <Data Name="Definitions(A1)#HeaderText"><![CDATA[Message]]></Data>
+                    <Data Name="Definitions(A2)#HeaderText"><![CDATA[Messages]]></Data>
+                    <Data Name="Definitions(A3)#HeaderText"><![CDATA[UniqueId]]></Data>
+                </ResourceSet>
+            </Resources>
+        </DT>
+    </definition>
+</ilog.rules.studio.model.dt:DecisionTable>

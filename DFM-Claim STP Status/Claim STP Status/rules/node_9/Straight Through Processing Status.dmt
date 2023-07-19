@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ilog.rules.studio.model.dt:DecisionTable xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.dt="http://ilog.rules.studio/model/dt.ecore">
+    <name>Straight Through Processing Status</name>
+    <uuid>9f479079-8911-4627-a537-0466225e2263</uuid>
+    <locale>en_US</locale>
+    <definition>
+        <DT Version="7.0" xmlns="http://schemas.ilog.com/Rules/7.0/DecisionTable">
+            <Body>
+                <Properties>
+                    <Property Name="UI.MediaType"><![CDATA[Web]]></Property>
+                    <Property Name="UI.RenderBoolean" Type="xs:boolean"><![CDATA[true]]></Property>
+                </Properties>
+                <Structure>
+                    <ConditionDefinitions>
+                        <ConditionDefinition Id="C0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim STP Eligibility' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C1">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Validity or Fraud' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C2">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Wastage Assessment' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                        <ConditionDefinition Id="C3">
+                            <ExpressionDefinition>
+                                <Text><![CDATA['Claim Complexity' is <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ConditionDefinition>
+                    </ConditionDefinitions>
+                    <ActionDefinitions>
+                        <ActionDefinition Id="A0">
+                            <ExpressionDefinition>
+                                <Text><![CDATA[set Straight Through Processing Status to <a string>]]></Text>
+                            </ExpressionDefinition>
+                        </ActionDefinition>
+                    </ActionDefinitions>
+                </Structure>
+                <Contents>
+                    <Partition DefId="C0">
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["STP Eligible"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["STP Valid"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["Low"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["STP Accept"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["STP Eligible"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["STP Valid"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Acceptable"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["Moderate"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["STP Accept"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["STP Ineligible"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["STP Invalid"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["Low"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["STP Decline"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["STP Ineligible"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["-"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Manual Review"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["STP Invalid"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["-"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Manual Review"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["STP Questionable"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["-"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["-"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Manual Review"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Questionable "]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["-"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Manual Review"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C2">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["Unacceptable"]]></Param>
+                                            </Expression>
+                                            <Partition DefId="C3">
+                                                <Condition>
+                                                    <Expression>
+                                                        <Param><![CDATA["-"]]></Param>
+                                                    </Expression>
+                                                    <ActionSet>
+                                                        <Action DefId="A0">
+                                                            <Expression>
+                                                                <Param><![CDATA["Manual Review"]]></Param>
+                                                            </Expression>
+                                                        </Action>
+                                                    </ActionSet>
+                                                </Condition>
+                                            </Partition>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                        <Condition>
+                            <Expression>
+                                <Param><![CDATA["-"]]></Param>
+                            </Expression>
+                            <Partition DefId="C1">
+                                <Condition>
+                                    <Expression>
+                                        <Param><![CDATA["-"]]></Param>
+                                    </Expression>
+                                    <Partition DefId="C3">
+                                        <Condition>
+                                            <Expression>
+                                                <Param><![CDATA["High"]]></Param>
+                                            </Expression>
+                                            <ActionSet>
+                                                <Action DefId="A0">
+                                                    <Expression>
+                                                        <Param><![CDATA["Manual Review"]]></Param>
+                                                    </Expression>
+                                                </Action>
+                                            </ActionSet>
+                                        </Condition>
+                                    </Partition>
+                                </Condition>
+                            </Partition>
+                        </Condition>
+                    </Partition>
+                </Contents>
+            </Body>
+            <Resources DefaultLocale="en_US">
+                <ResourceSet Locale="en_US">
+                    <Data Name="Definitions(C0)#HeaderText"><![CDATA[Claim STP Eligibility]]></Data>
+                    <Data Name="Definitions(C1)#HeaderText"><![CDATA[Claim Validity or Fraud]]></Data>
+                    <Data Name="Definitions(C2)#HeaderText"><![CDATA[Claim Wastage Assessment]]></Data>
+                    <Data Name="Definitions(C3)#HeaderText"><![CDATA[Claim Complexity]]></Data>
+                    <Data Name="Definitions(A0)#HeaderText"><![CDATA[Straight Through Processing Status]]></Data>
+                    <Data Name="Definitions(A1)#HeaderText"><![CDATA[Messages]]></Data>
+                    <Data Name="Definitions(A2)#HeaderText"><![CDATA[UniqueId]]></Data>
+                </ResourceSet>
+            </Resources>
+        </DT>
+    </definition>
+</ilog.rules.studio.model.dt:DecisionTable>
